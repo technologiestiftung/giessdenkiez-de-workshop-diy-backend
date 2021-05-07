@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Fabian Morón Zirfas">
+  <title>Giessdenkiez.de</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/reset.css">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+      }
+    pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+    div.sourceCode
+      { color: #cccccc; background-color: #303030; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ffcfaf; } /* Alert */
+    code span.an { color: #7f9f7f; font-weight: bold; } /* Annotation */
+    code span.at { } /* Attribute */
+    code span.bn { color: #dca3a3; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #f0dfaf; } /* ControlFlow */
+    code span.ch { color: #dca3a3; } /* Char */
+    code span.cn { color: #dca3a3; font-weight: bold; } /* Constant */
+    code span.co { color: #7f9f7f; } /* Comment */
+    code span.cv { color: #7f9f7f; font-weight: bold; } /* CommentVar */
+    code span.do { color: #7f9f7f; } /* Documentation */
+    code span.dt { color: #dfdfbf; } /* DataType */
+    code span.dv { color: #dcdccc; } /* DecVal */
+    code span.er { color: #c3bf9f; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #c0bed1; } /* Float */
+    code span.fu { color: #efef8f; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #7f9f7f; font-weight: bold; } /* Information */
+    code span.kw { color: #f0dfaf; } /* Keyword */
+    code span.op { color: #f0efd0; } /* Operator */
+    code span.ot { color: #efef8f; } /* Other */
+    code span.pp { color: #ffcfaf; font-weight: bold; } /* Preprocessor */
+    code span.sc { color: #dca3a3; } /* SpecialChar */
+    code span.ss { color: #cc9393; } /* SpecialString */
+    code span.st { color: #cc9393; } /* String */
+    code span.va { } /* Variable */
+    code span.vs { color: #cc9393; } /* VerbatimString */
+    code span.wa { color: #7f9f7f; font-weight: bold; } /* Warning */
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/theme/simple.css" id="theme">
+<!--my additions to the template -->
+<style>
+
+        pre{
+                box-shadow: none !important;
+        }
+</style>
+<link rel="stylesheet" href="assets/css/robot-lung.css" id="theme">
+<!-- end -->
+</head>
+<body>
+ <div class="line top"></div>
+    <div class="line bottom"></div>
+    <div class="line left"></div>
+    <div class="line right"></div>
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide">
+  <h1 class="title">Giessdenkiez.de</h1>
+  <p class="subtitle">Building the Backend</p>
+  <p class="author">Fabian Morón Zirfas</p>
+  <p class="date">12.05.2021</p>
+</section>
+
+<section class="slide level2">
+
+<p><img src="./assets/images/logo.svg" width="800px"></p>
+<aside class="notes">
+Shhh, these are your private notes 📝
+</aside>
+</section>
+<section>
+<section id="backend-überblick" class="title-slide slide level1">
+<h1>Backend Überblick</h1>
+<aside class="notes">
+Zuallerserst möchte ich einen Überblick über die Applikation im gesamten geben.
+</aside>
+</section>
+<section class="slide level2">
+
+<p><img data-src="https://raw.githubusercontent.com/wiki/technologiestiftung/giessdenkiez-de/assets/images/stack@2x.png" /></p>
+<aside class="notes">
+<p>User lädt die seite -&gt; mapbox + S3 User klickt Baum User erstellt Accout User adoptiert Baum User wässert Baum User löscht Account</p>
+<p>Täglich DWD Wöchentlich OSM</p>
+Developer Pusht zu Repo Frontend + Backen
+</aside>
+</section>
+<section id="vorraussetzungen" class="slide level2">
+<h2>Vorraussetzungen</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Tool</th>
+<th>Kommentar</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="https://github.com/nvm-sh/nvm">nvm</a></td>
+<td>Verwaltung von Node.js Versionen</td>
+</tr>
+<tr class="even">
+<td><a href="https://asdf-vm.com/#/">asdf</a></td>
+<td>Verwaltung von CLI Versionen</td>
+</tr>
+<tr class="odd">
+<td><a href="https://git-scm.com/">Git</a></td>
+<td>Versionskontrolle</td>
+</tr>
+<tr class="even">
+<td><a href="https://nodejs.org/en/">Node.js</a></td>
+<td>Ausführung</td>
+</tr>
+<tr class="odd">
+<td><a href="https://aws.amazon.com/cli/">AWS CLI</a></td>
+<td>Abhängigkeit für Terraform</td>
+</tr>
+<tr class="even">
+<td><a href="https://www.terraform.io/">Terraform</a></td>
+<td>Erzeugung von Infrastruktur</td>
+</tr>
+<tr class="odd">
+<td><a href="https://auth0.com/">auth0.com</a> Account</td>
+<td>Auth Provider</td>
+</tr>
+<tr class="even">
+<td><a href="https://vercel.com/">vercel.com</a> Account</td>
+<td>Hosting Provider</td>
+</tr>
+<tr class="odd">
+<td><a href="https://netlify.com/">netlify.com</a> Account</td>
+<td>Hosting Provider</td>
+</tr>
+<tr class="even">
+<td><a href="https://mapbox.com/">mapbox.com</a> Account</td>
+<td>Karten Provider</td>
+</tr>
+<tr class="odd">
+<td><a href="https://aws.amazon.com/">AWS</a> Account</td>
+<td>DB und Datei Speicherung Provider</td>
+</tr>
+<tr class="even">
+<td><a href="https://github.com">GitHub</a> Account</td>
+<td>VCS + CI/CD</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="wo-ist-der-sourcecode" class="slide level2">
+<h2>Wo ist der Sourcecode?</h2>
+<table>
+<colgroup>
+<col style="width: 9%" />
+<col style="width: 29%" />
+<col style="width: 61%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Provider</th>
+<th>Infrastruktur</th>
+<th>Repository (https://github.com/technologiestiftung/)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Mapbox</td>
+<td>Karten</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Auth0</td>
+<td>Autentifiziereng</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>GitHub</td>
+<td>Versionskontrolle &amp; CI/CD</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>AWS</td>
+<td>Datenbank</td>
+<td>giessdenkiez-de-aws-rds-terraform</td>
+</tr>
+<tr class="odd">
+<td>AWS</td>
+<td>Datei Speicherung</td>
+<td>giessdenkiez-de-aws-s3-terraform</td>
+</tr>
+<tr class="even">
+<td>DWD</td>
+<td>Regendaten</td>
+<td>giessdenkiez-de-dwd-harvester</td>
+</tr>
+<tr class="odd">
+<td>OSM</td>
+<td>Wasserpumpendaten</td>
+<td>giessdenkiez-de-osm-pumpen-harvester</td>
+</tr>
+<tr class="even">
+<td>Vercel</td>
+<td>Backend Hosting</td>
+<td>tsb-trees-api-user-management</td>
+</tr>
+<tr class="odd">
+<td>Vercel</td>
+<td>Backend Hosting</td>
+<td>giessdenkiez-de-postgres-api</td>
+</tr>
+<tr class="even">
+<td>Netlify</td>
+<td>Frontend Hosting</td>
+<td>giessdenkiez-de</td>
+</tr>
+</tbody>
+</table>
+</section></section>
+<section>
+<section id="wie-fange-ich-an" class="title-slide slide level1">
+<h1>Wie fange ich an?</h1>
+
+</section>
+<section id="zum-wiki" class="slide level2">
+<h2><a href="https://github.com/technologiestiftung/giessdenkiez-de/wiki">▶▶ ▶ Zum Wiki ▶ ▶▶</a></h2>
+</section></section>
+<section>
+<section id="beispiel-db-api" class="title-slide slide level1">
+<h1>Beispiel DB &amp; API</h1>
+
+</section>
+<section id="datenbank-erzeugen" class="slide level2">
+<h2>1. Datenbank Erzeugen</h2>
+</section>
+<section id="aws-oder-nicht" class="slide level2">
+<h2>AWS oder nicht?</h2>
+</section>
+<section class="slide level2">
+
+<p><img data-src="./assets/images/Down_the_Rabbit_Hole.png" /></p>
+</section>
+<section id="render.com" class="slide level2">
+<h2><a href="http://render.com">Render.com</a></h2>
+</section>
+<section class="slide level2">
+
+<ul>
+<li>Username</li>
+<li>Passwort</li>
+<li>Host</li>
+<li>Port</li>
+<li>Datenbank Name</li>
+</ul>
+</section>
+<section id="als-connection-string" class="slide level2">
+<h2>Als Connection String</h2>
+</section>
+<section class="slide level2">
+
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">postgresql://[USER]:[PASSWORD]@[HOST]:[PORT]/[DATABASE]?schema=[SCHEMA]</span></span></code></pre></div>
+</section>
+<section id="auth0.com-api" class="slide level2">
+<h2>2. Auth0.com API</h2>
+</section>
+<section class="slide level2">
+
+<ul>
+<li>Audience</li>
+<li>Issuer</li>
+<li>JWKSUri</li>
+</ul>
+</section>
+<section id="quellcode" class="slide level2">
+<h2>3. Quellcode</h2>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/technologiestiftung/giessdenkiez-de-postgres-api.git gdk-api</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> gdk-api</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> ci</span></code></pre></div>
+</section>
+<section id="environment-variablen" class="slide level2">
+<h2>3.1 Environment Variablen</h2>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> .env.sample .env</span></code></pre></div>
+</section>
+<section class="slide level2">
+
+<p>in <code>.env</code></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a> <span class="co"># this is for the local dev environmet</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a> <span class="va">port</span><span class="op">=</span>5432</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a> <span class="va">user</span><span class="op">=</span>fangorn</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a> <span class="va">database</span><span class="op">=</span>trees</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a> <span class="va">password</span><span class="op">=</span>ent</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a> <span class="va">host</span><span class="op">=</span>localhost</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a> <span class="co"># this is for prisma the pattern is</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a> <span class="co"># postgresql://USER:PASSWORD@HOST:PORT/DATABASE?schema=SCHEMA</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a> <span class="va">DATABASE_URL</span><span class="op">=</span><span class="st">&quot;postgresql://fangorn:ent@localhost:5432/trees?schema=public&quot;</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a> <span class="co"># you will find these in auth0.com</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a> <span class="va">jwksuri</span><span class="op">=</span>https://your-fancy-tenant.eu.auth0.com/.well-known/jwks.json</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a> <span class="va">audience</span><span class="op">=</span>your-audience</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a> <span class="va">issuer</span><span class="op">=</span>https://your-fancy-tenant.eu.auth0.com/</span></code></pre></div>
+</section>
+<section id="tabellen-daten" class="slide level2">
+<h2>3.2 Tabellen &amp; Daten</h2>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">npx</span> prisma db push <span class="at">--preview-feature</span> <span class="at">--skip-generate</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">npx</span> prisma db seed <span class="at">--preview-feature</span></span></code></pre></div>
+</section>
+<section id="deploy" class="slide level2">
+<h2>4. Deploy</h2>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">npx</span> vercel</span></code></pre></div>
+</section>
+<section id="environment-variablen-1" class="slide level2">
+<h2>4.1 Environment Variablen</h2>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># the user for the postgres db</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="ex">npx</span> vercel env add user</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co"># the database name</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="ex">npx</span> vercel env add database</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co"># the database password</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="ex">npx</span> vercel env add password</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co"># the host of the db, aws? render.com? localhost?</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="ex">npx</span> vercel env add host</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="co"># defaults to 5432</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="ex">npx</span> vercel env add port</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="co"># below are all taken from auth0.com</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="ex">npx</span> vercel env add jwksuri</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="ex">npx</span> vercel env add audience</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="ex">npx</span> vercel env add issuer</span></code></pre></div>
+</section>
+<section id="deploy-1" class="slide level2">
+<h2>4.2 Deploy</h2>
+</section>
+<section id="section" class="slide level2">
+<h2>🚀</h2>
+<aside class="notes">
+This should now be deployed. Check the URLs from the shell
+</aside>
+</section>
+<section id="test" class="slide level2">
+<h2>5. Test</h2>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">code</span> <span class="at">--install-extension</span> humao.rest-client</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="ex">code</span> docs/api.http</span></code></pre></div>
+<aside class="notes">
+Wenn ihr VSCode benutzt könnt ihr mit dem Befehl oben eine Erweiterung installieren die es erlaubt HTTP requests direkt as dem Editor zu machen.
+</aside>
+</section>
+<section id="test-auth" class="slide level2">
+<h2>5.1 Test Auth</h2>
+<aside class="notes">
+Um zu testen ob unsere Authentifizierung funktioniert müssen wir zurück zu Auth0
+</aside>
+</section>
+<section id="auth0-application" class="slide level2">
+<h2>5.1.1 Auth0 Application</h2>
+<aside class="notes">
+Mit dem erstelen der API wurde auch direkt eine Machine 2 Machine Applikation erstellt. Diese können wir nutzen um tests gegen unsere API laufen zu lassen.
+</aside>
+</section>
+<section id="environment-variablen-2" class="slide level2">
+<h2>5.1.2 Environment Variablen</h2>
+<p>in <code>.env</code></p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># These can be obtained from Auth0 if you create a new machine to machine</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co"># application that has access to your API</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="va">client_id</span><span class="op">=</span>abc123</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="va">client_secret</span><span class="op">=</span>abc123</span></code></pre></div>
+</section>
+<section id="token-holen" class="slide level2">
+<h2>5.1.3 Token holen</h2>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">code</span> docs/api.http</span></code></pre></div>
+<aside class="notes">
+Sobald die .env eingetragen sind können wir wieder mit dem rest client Anfragen stellen. Dafür brauchen wir einen token
+</aside>
+</section>
+<section id="authentifizierte-anfrage" class="slide level2">
+<h2>5.1.4 Authentifizierte Anfrage</h2>
+<p>in <code>.env</code></p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># below varaibles are for testing the api only</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co"># this token can be obtained by running the POST request to</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co"># see docs/api.http for more info</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co"># https://giessdenkiez.eu.auth0.com/oauth/token</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="va">token</span><span class="op">=</span>a.b.c</span></code></pre></div>
+</section></section>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/reveal.js/dist/reveal.js"></script>
+
+  <!-- reveal.js plugins -->
+  <script src="https://unpkg.com/reveal.js/plugin/notes/notes.js"></script>
+  <script src="https://unpkg.com/reveal.js/plugin/search/search.js"></script>
+  <script src="https://unpkg.com/reveal.js/plugin/zoom/zoom.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+        // Push each slide change to the browser history
+        history: true,
+        // Transition style
+        transition: 'fade', // none/fade/slide/convex/concave/zoom
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: '100%',
+        height: '100%',
+        // Factor of the display size that should remain empty around the content
+        margin: 0.2,
+        // Bounds for smallest/largest possible scale to apply to content
+        minScale: 1,
+        maxScale: 1,
+
+        // reveal.js plugins
+        plugins: [
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    </body>
+</html>

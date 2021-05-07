@@ -258,3 +258,7 @@ in `.env`
 # https://giessdenkiez.eu.auth0.com/oauth/token
 token=a.b.c
 ```
+
+# Danke
+
+für Ihre Aufmerksamkeit

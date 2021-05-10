@@ -43,6 +43,7 @@ $endfor$
         }
 </style>
 <link rel="stylesheet" href="assets/css/robot-lung.css" id="theme">
+<base target="_blank">
 <!-- end -->
 </head>
 <body>

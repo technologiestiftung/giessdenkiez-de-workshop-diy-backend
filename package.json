@@ -10,9 +10,7 @@
     "chokidar-cli": "2.1.0",
     "reload": "3.1.1"
   },
-  "devDependencies": {
-    "husky": "6.0.0"
-  },
+  "devDependencies": {},
   "scripts": {
     "prepare": "husky install"
   },

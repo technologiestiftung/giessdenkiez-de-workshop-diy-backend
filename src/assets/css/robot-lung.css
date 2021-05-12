@@ -415,3 +415,7 @@ body {
 figure {
   margin: 0 auto;
 }
+
+li {
+  list-style-type: "‣ ";
+}

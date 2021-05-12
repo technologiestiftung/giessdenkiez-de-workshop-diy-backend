@@ -1,15 +1,49 @@
----
-title: Giessdenkiez.de
-subtitle: Building the Backend
-author: Fabian Morón Zirfas
-date: 12.05.2021
----
-
 <img src="./assets/images/logo.svg" width="800px">
 
+* Building the Backend
+* 12.05.2021
 
 <aside class="notes">
 Shhh, these are your private notes 📝
+</aside>
+
+---
+
+## Fabian Morón Zirfas
+
+
+* Creative Technologist
+* @Ideation & Prototyping Lab
+* @Technologiestiftung Berlin
+
+<aside class="notes">
+
+Jack of all Trades Master of None.
+
+Ganz offiziel bin ich Kommunikations Designer & Kaufmann, bin aber im Laufe meine
+Karriere immer weiter in die Bereiche Dev Ops und Full Stack eingetaucht.
+
+</aside>
+
+
+# T.O.C.
+
+* [Backend Überblick](#backend-überblick)
+* [Software + Services](#vorraussetzungen)
+* [Wo ist der Sourcecode?](#wo-ist-der-sourcecode)
+* [Wie fange ich an?](#wie-fange-ich-an)
+* [Beispiel DB & API in 6 Schritten](#beispiel-db-api-in-6-schritten)
+* [Q & A](#q-a)
+
+
+<aside class="notes">
+Wenn ich zu schnell bin sagen sie mir Bescheid oder wenn ich etwas anders erklären soll.
+Eine Diskussion können wir gerne im QA führen.
+
+Die Präsentation finden Sie auch online hinter diesem Link.
+
+https://technologiestiftung.github.io/giessdenkiez-de-workshop-diy-backend/
+
 </aside>
 
 
@@ -24,17 +58,15 @@ Zuallerserst möchte ich einen Überblick über die Applikation im gesamten gebe
 ![](https://raw.githubusercontent.com/wiki/technologiestiftung/giessdenkiez-de/assets/images/stack@2x.png)
 
 <aside class="notes">
-User lädt die seite -> mapbox + S3
-User klickt Baum
-User erstellt Accout
-User adoptiert Baum
-User wässert Baum
-User löscht Account
-
-Täglich DWD
-Wöchentlich OSM
-
-Developer Pusht zu Repo Frontend + Backen
+* User lädt die seite -> mapbox + S3
+* User klickt Baum
+* User erstellt Accout
+* User adoptiert Baum
+* User wässert Baum
+* User löscht Account
+* Täglich DWD
+* Wöchentlich OSM
+* Developer Pusht zu Repo Frontend + Backen
 </aside>
 ---
 
@@ -74,7 +106,7 @@ Dies sind die Software tools die wir verwenden.
 | Mapbox   | Karten                    |                                                      |
 | Auth0    | Autentifiziereng          |                                                      |
 | GitHub   | Versionskontrolle & CI/CD |                                                      |
-| ~~AWS~~      | ~~Datenbank~~                 | giessdenkiez-de-aws-rds-terraform                    |
+| ~~AWS~~  | ~~Datenbank~~             | giessdenkiez-de-aws-rds-terraform                    |
 | AWS      | Datei Speicherung         | giessdenkiez-de-aws-s3-terraform                     |
 | DWD      | Regendaten                | giessdenkiez-de-dwd-harvester                        |
 | OSM      | Wasserpumpendaten         | giessdenkiez-de-osm-pumpen-harvester                 |

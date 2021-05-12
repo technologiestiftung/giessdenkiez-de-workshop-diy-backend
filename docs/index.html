@@ -3,8 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="generator" content="pandoc">
-  <meta name="author" content="Fabian Morón Zirfas">
-  <title>Giessdenkiez.de</title>
+  <title>slides</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -105,20 +104,46 @@
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide">
-  <h1 class="title">Giessdenkiez.de</h1>
-  <p class="subtitle">Building the Backend</p>
-  <p class="author">Fabian Morón Zirfas</p>
-  <p class="date">12.05.2021</p>
-</section>
 
 <section class="slide level2">
 
 <p><img src="./assets/images/logo.svg" width="800px"></p>
+<ul>
+<li>Building the Backend</li>
+<li>12.05.2021</li>
+</ul>
 <aside class="notes">
 Shhh, these are your private notes 📝
 </aside>
 </section>
+<section id="fabian-morón-zirfas" class="slide level2">
+<h2>Fabian Morón Zirfas</h2>
+<ul>
+<li>Autodidakt Full Stack DevOps</li>
+<li><span class="citation" data-cites="Ideation">@Ideation</span> &amp; Prototyping Lab</li>
+<li><span class="citation" data-cites="Technologiestiftung">@Technologiestiftung</span> Berlin</li>
+</ul>
+<aside class="notes">
+<p>Ganz offiziel bin ich Kommunikations Designer &amp; Kaufmann, bin aber im Laufe meine Karriere immer weiter in die oben genannten Bereiche eingetaucht.</p>
+</aside>
+</section>
+<section id="t.o.c." class="title-slide slide level1">
+<h1>T.O.C.</h1>
+<ul>
+<li><a href="#/backend-überblick">Backend Überblick</a></li>
+<li><a href="#/vorraussetzungen">Software + Services</a></li>
+<li><a href="#/wo-ist-der-sourcecode">Wo ist der Sourcecode?</a></li>
+<li><a href="#/wie-fange-ich-an">Wie fange ich an?</a></li>
+<li><a href="#/beispiel-db-api-in-6-schritten">Beispiel DB &amp; API in 6 Schritten</a></li>
+<li><a href="#/q-a">Q &amp; A</a></li>
+</ul>
+<aside class="notes">
+<p>Wenn ich zu schnell bin sagen sie mir Bescheid oder wenn ich etwas anders erklären soll. Eine Diskussion können wir gerne im QA führen.</p>
+<p>Die Präsentation finden Sie auch online hinter diesem Link.</p>
+<p>https://technologiestiftung.github.io/giessdenkiez-de-workshop-diy-backend/</p>
+</aside>
+</section>
+
 <section>
 <section id="backend-überblick" class="title-slide slide level1">
 <h1>Backend Überblick</h1>
@@ -130,9 +155,17 @@ Zuallerserst möchte ich einen Überblick über die Applikation im gesamten gebe
 
 <p><img data-src="https://raw.githubusercontent.com/wiki/technologiestiftung/giessdenkiez-de/assets/images/stack@2x.png" /></p>
 <aside class="notes">
-<p>User lädt die seite -&gt; mapbox + S3 User klickt Baum User erstellt Accout User adoptiert Baum User wässert Baum User löscht Account</p>
-<p>Täglich DWD Wöchentlich OSM</p>
-Developer Pusht zu Repo Frontend + Backen
+<ul>
+<li>User lädt die seite -&gt; mapbox + S3</li>
+<li>User klickt Baum</li>
+<li>User erstellt Accout</li>
+<li>User adoptiert Baum</li>
+<li>User wässert Baum</li>
+<li>User löscht Account</li>
+<li>Täglich DWD</li>
+<li>Wöchentlich OSM</li>
+<li>Developer Pusht zu Repo Frontend + Backen</li>
+</ul>
 </aside>
 </section>
 <section id="vorraussetzungen" class="slide level2">

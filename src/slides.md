@@ -42,6 +42,12 @@ Developer Pusht zu Repo Frontend + Backen
 
 ## Vorraussetzungen
 
+
+<aside class="notes">
+Dies sind die Software tools die wir verwenden.
+</aside>
+
+
 | Tool                                        | Kommentar                         |
 | ------------------------------------------- | --------------------------------- |
 | [nvm](https://github.com/nvm-sh/nvm)        | Verwaltung von Node.js Versionen  |
@@ -59,12 +65,16 @@ Developer Pusht zu Repo Frontend + Backen
 
 ## Wo ist der Sourcecode?
 
+<aside class="notes">
+Dies sind die Software tools die wir verwenden.
+</aside>
+
 | Provider | Infrastruktur             | Repository (https://github.com/technologiestiftung/) |
 | -------- | ------------------------- | ---------------------------------------------------- |
 | Mapbox   | Karten                    |                                                      |
 | Auth0    | Autentifiziereng          |                                                      |
 | GitHub   | Versionskontrolle & CI/CD |                                                      |
-| AWS      | Datenbank                 | giessdenkiez-de-aws-rds-terraform                    |
+| ~~AWS~~      | ~~Datenbank~~                 | giessdenkiez-de-aws-rds-terraform                    |
 | AWS      | Datei Speicherung         | giessdenkiez-de-aws-s3-terraform                     |
 | DWD      | Regendaten                | giessdenkiez-de-dwd-harvester                        |
 | OSM      | Wasserpumpendaten         | giessdenkiez-de-osm-pumpen-harvester                 |
@@ -75,21 +85,51 @@ Developer Pusht zu Repo Frontend + Backen
 
 # Wie fange ich an?
 
+<aside class="notes">
+Der beste Platz um zu starten ist unser Wiki im Hauptrepo. Wenn es trotzdem Unklarheiten geben sollte, könnt ihr uns GitHub issues schreiben.
+</aside>
+
 ## [▶▶ ▶ Zum Wiki ▶ ▶▶](https://github.com/technologiestiftung/giessdenkiez-de/wiki)
 
-# Beispiel DB & API
+# Beispiel DB & API in 6 Schritten
 
+<aside class="notes">
+Ich werde jetzt versuchen 2½ Komponenten der Applikation zu deployen. 
+
+1. Die Datenbank
+2. Die API
+2 ½. Dem Auth0 Service
+
+</aside>
+
+## 🚨 Achtung 🚨 
+
+Hier könnten Drachen hausen!
 ## 1. Datenbank Erzeugen
+
+<aside class="notes">
+Beginnen wir mit der Datenbank.
+</aside>
 
 ## AWS oder nicht?
 
+
 -------
+
+<aside class="notes">
+Aktuell läft unsere Datenbank auf AWS (wie ich breits erwähnt habe). Wir benutzen Terraform um AWS
+irgendwie unter Kontrolle zu halten. Für euren Geistesfrieden, rate ich euch erstmal davon ab AWS zu nutzen.
+</aside>
 
 ![](./assets/images/Down_the_Rabbit_Hole.png)
 
 -------
 
 ## [Render.com](http://render.com)
+
+<aside class="notes">
+Was ist die Alternative? Der IMO aktuell einfachste Service ist render.com. Mit einem klick erhalten wir eine Datenbank.
+</aside>
 
 ---
 
@@ -99,9 +139,18 @@ Developer Pusht zu Repo Frontend + Backen
 * Port
 * Datenbank Name
 
+<aside class="notes">
+Folgende Variablen benötigen wir.
+</aside>
+
 ---
 
-## Als Connection String
+## Als `postgresql` Connection String
+
+<aside class="notes">
+Wir benötigen die gleichen Variablen ebenfalls as connection string.
+Ja. Das ist redundant und wir haben bereits ein Ticket dafür. GDK-137
+</aside>
 
 ---
 
@@ -113,6 +162,9 @@ postgresql://[USER]:[PASSWORD]@[HOST]:[PORT]/[DATABASE]?schema=[SCHEMA]
 
 ## 2. Auth0.com API
 
+<aside class="notes">
+Das nächste was wir machen müssen ist unsere API in Auth0.com anlegen.
+</aside>
 
 ---
 
@@ -121,7 +173,16 @@ postgresql://[USER]:[PASSWORD]@[HOST]:[PORT]/[DATABASE]?schema=[SCHEMA]
 * Issuer
 * JWKSUri
 
+
+<aside class="notes">
+Wir benötigen von dort die folgenden Informationen.
+</aside>
+
 ## 3. Quellcode
+
+<aside class="notes">
+Nun können wir uns den Sourcecode für die API abholen.
+</aside>
 
 ```bash
 git clone https://github.com/technologiestiftung/giessdenkiez-de-postgres-api.git gdk-api
@@ -135,7 +196,13 @@ npm ci
 cp .env.sample .env
 ```
 
+<aside class="notes">
+Zum testen schreiben wir uns unsere Variablen in die dotenv Datei. Diese Datei sollte NICHT in die
+Versionskontrolle gehen. 
+</aside>
 ---
+
+
 
 in `.env`
 
@@ -146,7 +213,7 @@ in `.env`
  database=trees
  password=ent
  host=localhost
- # this is for prisma the pattern is
+ # this is for prisma - the pattern is
  # postgresql://USER:PASSWORD@HOST:PORT/DATABASE?schema=SCHEMA
  DATABASE_URL="postgresql://fangorn:ent@localhost:5432/trees?schema=public"
  # you will find these in auth0.com
@@ -156,20 +223,25 @@ in `.env`
 ```
 
 
-## 3.2 Tabellen & Daten
+## 4. Tabellen & Daten
+
+<aside class="notes">
+Jetzt können wir unsere Datenbankschema aufsetzten und die DB mit test Daten befüllen.
+
+</aside>
 
 ```bash
 npx prisma db push --preview-feature --skip-generate
 npx prisma db seed --preview-feature
 ```
 
-## 4. Deploy
+## 5. Deploy
 
 ```bash
 npx vercel
 ```
 
-## 4.1 Environment Variablen
+## 5.1 Environment Variablen
 
 ```bash
 # the user for the postgres db
@@ -188,17 +260,17 @@ npx vercel env add audience
 npx vercel env add issuer
 ```
 
-## 4.2 Deploy 
+## 5.2 Deploy 
 
 ## 🚀
 
 
 <aside class="notes">
-This should now be deployed. Check the URLs from the shell
+Die API sollte jetzt deployed sein. Mit den URLs aus der Shell können wir das überprüfen.
 </aside>
 
 
-## 5. Test
+## 6. Test
 
 ```bash
 code --install-extension humao.rest-client
@@ -211,20 +283,20 @@ installieren die es erlaubt HTTP requests direkt as dem Editor zu machen.
 </aside>
 
 
-## 5.1 Test Auth
+## 6.1 Test Auth
 
 <aside class="notes">
 Um zu testen ob unsere Authentifizierung funktioniert müssen wir zurück zu Auth0
 </aside>
 
-## 5.1.1 Auth0 Application
+## 6.1.1 Auth0 Application
 
 <aside class="notes">
 Mit dem erstelen der API wurde auch direkt eine Machine 2 Machine Applikation erstellt.
 Diese können wir nutzen um tests gegen unsere API laufen zu lassen.
 </aside>
 
-## 5.1.2 Environment Variablen
+## 6.1.2 Environment Variablen
 
 in `.env`
 
@@ -236,7 +308,7 @@ client_secret=abc123
 ```
 
 
-## 5.1.3 Token holen
+## 6.1.3 Token holen
 
 
 ```bash
@@ -247,7 +319,7 @@ code docs/api.http
 Sobald die .env eingetragen sind können wir wieder mit dem rest client Anfragen stellen. Dafür brauchen wir einen token
 </aside>
 
-## 5.1.4 Authentifizierte Anfrage
+## 6.1.4 Authentifizierte Anfrage
 
 in `.env`
 
@@ -258,6 +330,12 @@ in `.env`
 # https://giessdenkiez.eu.auth0.com/oauth/token
 token=a.b.c
 ```
+
+# Q & A
+
+<aside class="notes">
+Ja das waren keine 6 Schritte.
+</aside>
 
 # Danke
 

@@ -137,6 +137,9 @@ Developer Pusht zu Repo Frontend + Backen
 </section>
 <section id="vorraussetzungen" class="slide level2">
 <h2>Vorraussetzungen</h2>
+<aside class="notes">
+Dies sind die Software tools die wir verwenden.
+</aside>
 <table>
 <thead>
 <tr class="header">
@@ -198,6 +201,9 @@ Developer Pusht zu Repo Frontend + Backen
 </section>
 <section id="wo-ist-der-sourcecode" class="slide level2">
 <h2>Wo ist der Sourcecode?</h2>
+<aside class="notes">
+Dies sind die Software tools die wir verwenden.
+</aside>
 <table>
 <colgroup>
 <col style="width: 9%" />
@@ -228,8 +234,8 @@ Developer Pusht zu Repo Frontend + Backen
 <td></td>
 </tr>
 <tr class="even">
-<td>AWS</td>
-<td>Datenbank</td>
+<td><del>AWS</del></td>
+<td><del>Datenbank</del></td>
 <td>giessdenkiez-de-aws-rds-terraform</td>
 </tr>
 <tr class="odd">
@@ -268,28 +274,46 @@ Developer Pusht zu Repo Frontend + Backen
 <section>
 <section id="wie-fange-ich-an" class="title-slide slide level1">
 <h1>Wie fange ich an?</h1>
-
+<aside class="notes">
+Der beste Platz um zu starten ist unser Wiki im Hauptrepo. Wenn es trotzdem Unklarheiten geben sollte, könnt ihr uns GitHub issues schreiben.
+</aside>
 </section>
 <section id="zum-wiki" class="slide level2">
 <h2><a href="https://github.com/technologiestiftung/giessdenkiez-de/wiki">▶▶ ▶ Zum Wiki ▶ ▶▶</a></h2>
 </section></section>
 <section>
-<section id="beispiel-db-api" class="title-slide slide level1">
-<h1>Beispiel DB &amp; API</h1>
-
+<section id="beispiel-db-api-in-6-schritten" class="title-slide slide level1">
+<h1>Beispiel DB &amp; API in 6 Schritten</h1>
+<aside class="notes">
+<p>Ich werde jetzt versuchen 2½ Komponenten der Applikation zu deployen.</p>
+<ol type="1">
+<li>Die Datenbank</li>
+<li>Die API 2 ½. Dem Auth0 Service</li>
+</ol>
+</aside>
 </section>
-<section id="datenbank-erzeugen" class="slide level2">
-<h2>1. Datenbank Erzeugen</h2>
+<section id="achtung" class="slide level2">
+<h2>🚨 Achtung 🚨</h2>
+<p>Hier könnten Drachen hausen! ## 1. Datenbank Erzeugen</p>
+<aside class="notes">
+Beginnen wir mit der Datenbank.
+</aside>
 </section>
 <section id="aws-oder-nicht" class="slide level2">
 <h2>AWS oder nicht?</h2>
 </section>
 <section class="slide level2">
 
+<aside class="notes">
+Aktuell läft unsere Datenbank auf AWS (wie ich breits erwähnt habe). Wir benutzen Terraform um AWS irgendwie unter Kontrolle zu halten. Für euren Geistesfrieden, rate ich euch erstmal davon ab AWS zu nutzen.
+</aside>
 <p><img data-src="./assets/images/Down_the_Rabbit_Hole.png" /></p>
 </section>
 <section id="render.com" class="slide level2">
 <h2><a href="http://render.com">Render.com</a></h2>
+<aside class="notes">
+Was ist die Alternative? Der IMO aktuell einfachste Service ist render.com. Mit einem klick erhalten wir eine Datenbank.
+</aside>
 </section>
 <section class="slide level2">
 
@@ -300,9 +324,15 @@ Developer Pusht zu Repo Frontend + Backen
 <li>Port</li>
 <li>Datenbank Name</li>
 </ul>
+<aside class="notes">
+Folgende Variablen benötigen wir.
+</aside>
 </section>
-<section id="als-connection-string" class="slide level2">
-<h2>Als Connection String</h2>
+<section id="als-postgresql-connection-string" class="slide level2">
+<h2>Als <code>postgresql</code> Connection String</h2>
+<aside class="notes">
+Wir benötigen die gleichen Variablen ebenfalls as connection string. Ja. Das ist redundant und wir haben bereits ein Ticket dafür. GDK-137
+</aside>
 </section>
 <section class="slide level2">
 
@@ -310,6 +340,9 @@ Developer Pusht zu Repo Frontend + Backen
 </section>
 <section id="auth0.com-api" class="slide level2">
 <h2>2. Auth0.com API</h2>
+<aside class="notes">
+Das nächste was wir machen müssen ist unsere API in Auth0.com anlegen.
+</aside>
 </section>
 <section class="slide level2">
 
@@ -318,9 +351,15 @@ Developer Pusht zu Repo Frontend + Backen
 <li>Issuer</li>
 <li>JWKSUri</li>
 </ul>
+<aside class="notes">
+Wir benötigen von dort die folgenden Informationen.
+</aside>
 </section>
 <section id="quellcode" class="slide level2">
 <h2>3. Quellcode</h2>
+<aside class="notes">
+Nun können wir uns den Sourcecode für die API abholen.
+</aside>
 <div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/technologiestiftung/giessdenkiez-de-postgres-api.git gdk-api</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> gdk-api</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> ci</span></code></pre></div>
@@ -328,6 +367,9 @@ Developer Pusht zu Repo Frontend + Backen
 <section id="environment-variablen" class="slide level2">
 <h2>3.1 Environment Variablen</h2>
 <div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> .env.sample .env</span></code></pre></div>
+<aside class="notes">
+Zum testen schreiben wir uns unsere Variablen in die dotenv Datei. Diese Datei sollte NICHT in die Versionskontrolle gehen.
+</aside>
 </section>
 <section class="slide level2">
 
@@ -338,7 +380,7 @@ Developer Pusht zu Repo Frontend + Backen
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a> <span class="va">database</span><span class="op">=</span>trees</span>
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a> <span class="va">password</span><span class="op">=</span>ent</span>
 <span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a> <span class="va">host</span><span class="op">=</span>localhost</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a> <span class="co"># this is for prisma the pattern is</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a> <span class="co"># this is for prisma - the pattern is</span></span>
 <span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a> <span class="co"># postgresql://USER:PASSWORD@HOST:PORT/DATABASE?schema=SCHEMA</span></span>
 <span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a> <span class="va">DATABASE_URL</span><span class="op">=</span><span class="st">&quot;postgresql://fangorn:ent@localhost:5432/trees?schema=public&quot;</span></span>
 <span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a> <span class="co"># you will find these in auth0.com</span></span>
@@ -347,16 +389,19 @@ Developer Pusht zu Repo Frontend + Backen
 <span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a> <span class="va">issuer</span><span class="op">=</span>https://your-fancy-tenant.eu.auth0.com/</span></code></pre></div>
 </section>
 <section id="tabellen-daten" class="slide level2">
-<h2>3.2 Tabellen &amp; Daten</h2>
+<h2>4. Tabellen &amp; Daten</h2>
+<aside class="notes">
+<p>Jetzt können wir unsere Datenbankschema aufsetzten und die DB mit test Daten befüllen.</p>
+</aside>
 <div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">npx</span> prisma db push <span class="at">--preview-feature</span> <span class="at">--skip-generate</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">npx</span> prisma db seed <span class="at">--preview-feature</span></span></code></pre></div>
 </section>
 <section id="deploy" class="slide level2">
-<h2>4. Deploy</h2>
+<h2>5. Deploy</h2>
 <div class="sourceCode" id="cb6"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">npx</span> vercel</span></code></pre></div>
 </section>
 <section id="environment-variablen-1" class="slide level2">
-<h2>4.1 Environment Variablen</h2>
+<h2>5.1 Environment Variablen</h2>
 <div class="sourceCode" id="cb7"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># the user for the postgres db</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="ex">npx</span> vercel env add user</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co"># the database name</span></span>
@@ -373,16 +418,16 @@ Developer Pusht zu Repo Frontend + Backen
 <span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="ex">npx</span> vercel env add issuer</span></code></pre></div>
 </section>
 <section id="deploy-1" class="slide level2">
-<h2>4.2 Deploy</h2>
+<h2>5.2 Deploy</h2>
 </section>
 <section id="section" class="slide level2">
 <h2>🚀</h2>
 <aside class="notes">
-This should now be deployed. Check the URLs from the shell
+Die API sollte jetzt deployed sein. Mit den URLs aus der Shell können wir das überprüfen.
 </aside>
 </section>
 <section id="test" class="slide level2">
-<h2>5. Test</h2>
+<h2>6. Test</h2>
 <div class="sourceCode" id="cb8"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">code</span> <span class="at">--install-extension</span> humao.rest-client</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="ex">code</span> docs/api.http</span></code></pre></div>
 <aside class="notes">
@@ -390,19 +435,19 @@ Wenn ihr VSCode benutzt könnt ihr mit dem Befehl oben eine Erweiterung installi
 </aside>
 </section>
 <section id="test-auth" class="slide level2">
-<h2>5.1 Test Auth</h2>
+<h2>6.1 Test Auth</h2>
 <aside class="notes">
 Um zu testen ob unsere Authentifizierung funktioniert müssen wir zurück zu Auth0
 </aside>
 </section>
 <section id="auth0-application" class="slide level2">
-<h2>5.1.1 Auth0 Application</h2>
+<h2>6.1.1 Auth0 Application</h2>
 <aside class="notes">
 Mit dem erstelen der API wurde auch direkt eine Machine 2 Machine Applikation erstellt. Diese können wir nutzen um tests gegen unsere API laufen zu lassen.
 </aside>
 </section>
 <section id="environment-variablen-2" class="slide level2">
-<h2>5.1.2 Environment Variablen</h2>
+<h2>6.1.2 Environment Variablen</h2>
 <p>in <code>.env</code></p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># These can be obtained from Auth0 if you create a new machine to machine</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co"># application that has access to your API</span></span>
@@ -410,14 +455,14 @@ Mit dem erstelen der API wurde auch direkt eine Machine 2 Machine Applikation er
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="va">client_secret</span><span class="op">=</span>abc123</span></code></pre></div>
 </section>
 <section id="token-holen" class="slide level2">
-<h2>5.1.3 Token holen</h2>
+<h2>6.1.3 Token holen</h2>
 <div class="sourceCode" id="cb10"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">code</span> docs/api.http</span></code></pre></div>
 <aside class="notes">
 Sobald die .env eingetragen sind können wir wieder mit dem rest client Anfragen stellen. Dafür brauchen wir einen token
 </aside>
 </section>
 <section id="authentifizierte-anfrage" class="slide level2">
-<h2>5.1.4 Authentifizierte Anfrage</h2>
+<h2>6.1.4 Authentifizierte Anfrage</h2>
 <p>in <code>.env</code></p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># below varaibles are for testing the api only</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co"># this token can be obtained by running the POST request to</span></span>
@@ -425,6 +470,13 @@ Sobald die .env eingetragen sind können wir wieder mit dem rest client Anfragen
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co"># https://giessdenkiez.eu.auth0.com/oauth/token</span></span>
 <span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="va">token</span><span class="op">=</span>a.b.c</span></code></pre></div>
 </section></section>
+<section id="q-a" class="title-slide slide level1">
+<h1>Q &amp; A</h1>
+<aside class="notes">
+Ja das waren keine 6 Schritte.
+</aside>
+</section>
+
 <section id="danke" class="title-slide slide level1">
 <h1>Danke</h1>
 <p>für Ihre Aufmerksamkeit</p>

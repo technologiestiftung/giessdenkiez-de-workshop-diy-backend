@@ -43,10 +43,6 @@ Developer Pusht zu Repo Frontend + Backen
 ## Vorraussetzungen
 
 
-<aside class="notes">
-Dies sind die Software tools die wir verwenden.
-</aside>
-
 
 | Tool                                        | Kommentar                         |
 | ------------------------------------------- | --------------------------------- |
@@ -63,11 +59,15 @@ Dies sind die Software tools die wir verwenden.
 | [AWS](https://aws.amazon.com/) Account      | DB und Datei Speicherung Provider |
 | [GitHub](https://github.com) Account        | VCS + CI/CD                       |
 
-## Wo ist der Sourcecode?
-
 <aside class="notes">
 Dies sind die Software tools die wir verwenden.
 </aside>
+
+
+
+## Wo ist der Sourcecode?
+
+
 
 | Provider | Infrastruktur             | Repository (https://github.com/technologiestiftung/) |
 | -------- | ------------------------- | ---------------------------------------------------- |
@@ -82,6 +82,9 @@ Dies sind die Software tools die wir verwenden.
 | Vercel   | Backend Hosting           | giessdenkiez-de-postgres-api                         |
 | Netlify  | Frontend Hosting          | giessdenkiez-de                                      |
 
+<aside class="notes">
+Dies sind die Software tools die wir verwenden.
+</aside>
 
 # Wie fange ich an?
 
@@ -105,6 +108,7 @@ Ich werde jetzt versuchen 2½ Komponenten der Applikation zu deployen.
 ## 🚨 Achtung 🚨 
 
 Hier könnten Drachen hausen!
+
 ## 1. Datenbank Erzeugen
 
 <aside class="notes">

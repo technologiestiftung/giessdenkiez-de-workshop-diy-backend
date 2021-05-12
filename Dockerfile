@@ -1,2 +1,2 @@
 FROM pandoc/core:2.13
-ENTRYPOINT ["/bin/sh"]
+RUN apk add --update make

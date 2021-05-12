@@ -20,11 +20,13 @@ build:
 	@cp -R ./src/assets/* docs/assets/ ;
 	@echo "pandoc build and assets copy successful"
 
+docker:
+	docker compose up
 serve:
 	@npx reload -p 3000 --dir ./docs
 
-watch: build
-	@npx chokidar "./src/*.md" "./src/assets/css/*.css" -c "make build"
+watch: docker
+	@npx chokidar "./src/*.md" "./src/assets/css/*.css" -c "make docker"
 
 clean:
 	@rm -rf ./docs/* && touch ./docs/.gitkeep

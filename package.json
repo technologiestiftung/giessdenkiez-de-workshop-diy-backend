@@ -13,9 +13,6 @@
   "devDependencies": {
     "decktape": "3.1.0"
   },
-  "scripts": {
-    "prepare": "husky install"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/technologiestiftung/giessdenkiez-de-workshop-diy-backend.git"

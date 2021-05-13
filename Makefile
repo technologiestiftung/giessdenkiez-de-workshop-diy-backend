@@ -30,3 +30,6 @@ watch: docker
 
 clean:
 	@rm -rf ./docs/* && touch ./docs/.gitkeep
+
+pdf:
+	npx decktape --size 1920x1080 https://technologiestiftung.github.io/giessdenkiez-de-workshop-diy-backend ./docs/slides.pdf

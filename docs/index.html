@@ -456,6 +456,7 @@ Zum testen schreiben wir uns unsere Variablen in die dotenv Datei. Diese Datei s
 </section>
 <section id="deploy-1" class="slide level2">
 <h2>5.2 Deploy</h2>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">npx</span> vercel <span class="at">--prod</span></span></code></pre></div>
 </section>
 <section id="section" class="slide level2">
 <h2>🚀</h2>
@@ -465,8 +466,8 @@ Die API sollte jetzt deployed sein. Mit den URLs aus der Shell können wir das �
 </section>
 <section id="test" class="slide level2">
 <h2>6. Test</h2>
-<div class="sourceCode" id="cb8"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">code</span> <span class="at">--install-extension</span> humao.rest-client</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="ex">code</span> docs/api.http</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">code</span> <span class="at">--install-extension</span> humao.rest-client</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="ex">code</span> docs/api.http</span></code></pre></div>
 <aside class="notes">
 Wenn ihr VSCode benutzt könnt ihr mit dem Befehl oben eine Erweiterung installieren die es erlaubt HTTP requests direkt as dem Editor zu machen.
 </aside>
@@ -486,14 +487,14 @@ Mit dem erstelen der API wurde auch direkt eine Machine 2 Machine Applikation er
 <section id="environment-variablen-2" class="slide level2">
 <h2>6.1.2 Environment Variablen</h2>
 <p>in <code>.env</code></p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># These can be obtained from Auth0 if you create a new machine to machine</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co"># application that has access to your API</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="va">client_id</span><span class="op">=</span>abc123</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="va">client_secret</span><span class="op">=</span>abc123</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># These can be obtained from Auth0 if you create a new machine to machine</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co"># application that has access to your API</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="va">client_id</span><span class="op">=</span>abc123</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="va">client_secret</span><span class="op">=</span>abc123</span></code></pre></div>
 </section>
 <section id="token-holen" class="slide level2">
 <h2>6.1.3 Token holen</h2>
-<div class="sourceCode" id="cb10"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">code</span> docs/api.http</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">code</span> docs/api.http</span></code></pre></div>
 <aside class="notes">
 Sobald die .env eingetragen sind können wir wieder mit dem rest client Anfragen stellen. Dafür brauchen wir einen token
 </aside>
@@ -501,11 +502,11 @@ Sobald die .env eingetragen sind können wir wieder mit dem rest client Anfragen
 <section id="authentifizierte-anfrage" class="slide level2">
 <h2>6.1.4 Authentifizierte Anfrage</h2>
 <p>in <code>.env</code></p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># below varaibles are for testing the api only</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co"># this token can be obtained by running the POST request to</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co"># see docs/api.http for more info</span></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co"># https://giessdenkiez.eu.auth0.com/oauth/token</span></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="va">token</span><span class="op">=</span>a.b.c</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># below varaibles are for testing the api only</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co"># this token can be obtained by running the POST request to</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co"># see docs/api.http for more info</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co"># https://giessdenkiez.eu.auth0.com/oauth/token</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="va">token</span><span class="op">=</span>a.b.c</span></code></pre></div>
 </section></section>
 <section id="q-a" class="title-slide slide level1">
 <h1>Q &amp; A</h1>

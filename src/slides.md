@@ -296,7 +296,12 @@ npx vercel env add audience
 npx vercel env add issuer
 ```
 
-## 5.2 Deploy 
+## 5.2 Deploy
+
+```bash
+npx vercel --prod
+```
+
 
 ## 🚀
 

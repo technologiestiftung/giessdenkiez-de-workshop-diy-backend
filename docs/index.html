@@ -110,7 +110,7 @@
 <p><img src="./assets/images/logo.svg" width="800px"></p>
 <ul>
 <li>Building the Backend</li>
-<li>12.05.2021</li>
+<li>20.10.2021</li>
 </ul>
 <aside class="notes">
 Shhh, these are your private notes 📝
@@ -119,7 +119,7 @@ Shhh, these are your private notes 📝
 <section id="fabian-morón-zirfas" class="slide level2">
 <h2>Fabian Morón Zirfas</h2>
 <ul>
-<li>Creative Technologist</li>
+<li>Senior Creative Technologist</li>
 <li><span class="citation" data-cites="Ideation">@Ideation</span> &amp; Prototyping Lab</li>
 <li><span class="citation" data-cites="Technologiestiftung">@Technologiestiftung</span> Berlin</li>
 </ul>
@@ -135,7 +135,7 @@ Shhh, these are your private notes 📝
 <li><a href="#/vorraussetzungen">Software + Services</a></li>
 <li><a href="#/wo-ist-der-sourcecode">Wo ist der Sourcecode?</a></li>
 <li><a href="#/wie-fange-ich-an">Wie fange ich an?</a></li>
-<li><a href="#/beispiel-db-api-in-6-schritten">Beispiel DB &amp; API in 6 Schritten</a></li>
+<li><a href="#/beispiel-db-api-in-6-schritten"><s>Beispiel DB &amp; API in 6 Schritten</s></a></li>
 <li><a href="#/q-a">Q &amp; A</a></li>
 </ul>
 <aside class="notes">
@@ -165,7 +165,7 @@ Zuallerserst möchte ich einen Überblick über die Applikation im gesamten gebe
 <li>User löscht Account</li>
 <li>Täglich DWD</li>
 <li>Wöchentlich OSM</li>
-<li>Developer Pusht zu Repo Frontend + Backen</li>
+<li>Developer Push zu Repo Frontend + Backend</li>
 </ul>
 </aside>
 </section>
@@ -302,14 +302,14 @@ Dies sind die Software tools die wir verwenden.
 </tbody>
 </table>
 <aside class="notes">
-Dies sind die Software tools die wir verwenden.
+Dies sind die Software Tools die wir verwenden.
 </aside>
 </section></section>
 <section>
 <section id="wie-fange-ich-an" class="title-slide slide level1">
 <h1>Wie fange ich an?</h1>
 <aside class="notes">
-Der beste Platz um zu starten ist unser Wiki im Hauptrepo. Wenn es trotzdem Unklarheiten geben sollte, könnt ihr uns GitHub issues schreiben.
+Der beste Platz um zu starten ist unser Wiki im Hauptrepo. Wenn es trotzdem Unklarheiten geben sollte, könnt ihr uns GitHub Issues/Discussions schreiben.
 </aside>
 </section>
 <section id="zum-wiki" class="slide level2">
@@ -534,10 +534,83 @@ Ja das waren keine 6 Schritte.
       // Full list of configuration options available at:
       // https://revealjs.com/config/
       Reveal.initialize({
+        // Determines whether slide content should be vertically centered
+        center: true,
+        // Display controls in the bottom right corner
+        controls: true,
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: true,
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'bottom-right',
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+        // Display a presentation progress bar
+        progress: true,
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
         // Push each slide change to the browser history
         history: true,
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+        // Enable the slide overview mode
+        overview: true,
+        // Vertical centering of slides
+        center: true,
+        // Enables touch navigation on devices with touch input
+        touch: true,
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'default',
+        // Turns fragments on and off globally
+        fragments: true,
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: true,
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+       // Flags if it should be possible to pause the presentation (blackout)
+       pause: true,
+        // Global override for autoplaying embedded media (video/audio/iframe)
+        // - null: Media will only autoplay if data-autoplay is present
+        // - true: All media will autoplay, regardless of individual setting
+        // - false: No media will autoplay, regardless of individual setting
+        autoPlayMedia: null,
+        // Global override for preloading lazy-loaded iframes
+        // - null: Iframes with data-src AND data-preload will be loaded when within
+        //   the viewDistance, iframes with only data-src will be loaded when visible
+        // - true: All iframes with data-src will be loaded when within the viewDistance
+        // - false: All iframes with data-src will be loaded only when visible
+        preloadIframes: null,
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
         // Transition style
         transition: 'fade', // none/fade/slide/convex/concave/zoom
+        // Transition speed
+        transitionSpeed: 'default', // default/fast/slow
+        // Transition style for full page slide backgrounds
+        backgroundTransition: 'fade', // none/fade/slide/convex/concave/zoom
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
         // The "normal" size of the presentation, aspect ratio will be preserved
         // when the presentation is scaled to fit different resolutions. Can be
         // specified using percentage units.
@@ -548,6 +621,8 @@ Ja das waren keine 6 Schritte.
         // Bounds for smallest/largest possible scale to apply to content
         minScale: 1,
         maxScale: 1,
+        // The display mode that will be used to show slides
+        display: 'block',
 
         // reveal.js plugins
         plugins: [

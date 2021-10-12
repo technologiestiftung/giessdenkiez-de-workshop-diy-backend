@@ -1,7 +1,7 @@
 <img src="./assets/images/logo.svg" width="800px">
 
 * Building the Backend
-* 12.05.2021
+* 20.10.2021
 
 <aside class="notes">
 Shhh, these are your private notes 📝
@@ -12,7 +12,7 @@ Shhh, these are your private notes 📝
 ## Fabian Morón Zirfas
 
 
-* Creative Technologist
+* Senior Creative Technologist
 * @Ideation & Prototyping Lab
 * @Technologiestiftung Berlin
 
@@ -32,7 +32,7 @@ Karriere immer weiter in die Bereiche Dev Ops und Full Stack eingetaucht.
 * [Software + Services](#vorraussetzungen)
 * [Wo ist der Sourcecode?](#wo-ist-der-sourcecode)
 * [Wie fange ich an?](#wie-fange-ich-an)
-* [Beispiel DB & API in 6 Schritten](#beispiel-db-api-in-6-schritten)
+* [<s>Beispiel DB & API in 6 Schritten</s>](#beispiel-db-api-in-6-schritten)
 * [Q & A](#q-a)
 
 
@@ -66,7 +66,7 @@ Zuallerserst möchte ich einen Überblick über die Applikation im gesamten gebe
 * User löscht Account
 * Täglich DWD
 * Wöchentlich OSM
-* Developer Pusht zu Repo Frontend + Backen
+* Developer Push zu Repo Frontend + Backend
 </aside>
 ---
 
@@ -115,13 +115,13 @@ Dies sind die Software tools die wir verwenden.
 | Netlify  | Frontend Hosting          | giessdenkiez-de                                      |
 
 <aside class="notes">
-Dies sind die Software tools die wir verwenden.
+Dies sind die Software Tools die wir verwenden.
 </aside>
 
 # Wie fange ich an?
 
 <aside class="notes">
-Der beste Platz um zu starten ist unser Wiki im Hauptrepo. Wenn es trotzdem Unklarheiten geben sollte, könnt ihr uns GitHub issues schreiben.
+Der beste Platz um zu starten ist unser Wiki im Hauptrepo. Wenn es trotzdem Unklarheiten geben sollte, könnt ihr uns GitHub Issues/Discussions schreiben.
 </aside>
 
 ## [▶▶ ▶ Zum Wiki ▶ ▶▶](https://github.com/technologiestiftung/giessdenkiez-de/wiki)
